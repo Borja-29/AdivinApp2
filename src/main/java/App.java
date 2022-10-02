@@ -16,7 +16,7 @@ public class App extends Application {
 	private Button button;
 	private TextField textField;
 	private VBox root;
-	
+
 	int aleatorio = (int) Math.floor(Math.random() * 100 + 1);
 	int contador = 0;
 
@@ -27,9 +27,9 @@ public class App extends Application {
 		label.setText("Introduce un número del 1 al 100");
 
 		textField = new TextField();
-		textField.maxWidth(400);
+		textField.setMaxWidth(100);
 		textField.setAlignment(Pos.CENTER);
-		
+
 		button = new Button("Comprobar");
 		button.setOnAction(e -> onComprobarAction(e));
 
@@ -53,7 +53,7 @@ public class App extends Application {
 					aleatorio = (int) Math.floor(Math.random() * 100 + 1);
 					Alert aciertoAlerta = new Alert(AlertType.INFORMATION);
 					aciertoAlerta.setTitle("AdivinApp");
-					aciertoAlerta.setHeaderText("�Has Ganado!");
+					aciertoAlerta.setHeaderText("¡Has Ganado!");
 					aciertoAlerta.setContentText(
 							"Solo has necesitado " + contador + " intentos.\n\n Vuelve a jugar y hazlo mejor.");
 					aciertoAlerta.showAndWait();
@@ -62,27 +62,27 @@ public class App extends Application {
 				} else {
 					Alert falloAlerta = new Alert(AlertType.WARNING);
 					falloAlerta.setTitle("AdivinApp");
-					falloAlerta.setHeaderText("�Has fallado!");
+					falloAlerta.setHeaderText("¡Has fallado!");
 					if (a < aleatorio)
 						falloAlerta.setContentText(
-								"El n�mero a adivinar es mayor que " + a + ".\n\n Vuelve a intentarlo.");
+								"El número a adivinar es mayor que " + a + ".\n\n Vuelve a intentarlo.");
 					else
 						falloAlerta.setContentText(
-								"El n�mero a adivinar es menor que " + a + ".\n\n Vuelve a intentarlo.");
+								"El número a adivinar es menor que " + a + ".\n\n Vuelve a intentarlo.");
 					falloAlerta.showAndWait();
 				}
 			} else {
 				Alert errorAlerta = new Alert(AlertType.ERROR);
 				errorAlerta.setTitle("AdivinApp");
 				errorAlerta.setHeaderText("Error");
-				errorAlerta.setContentText("El n�mero introducido no es valido.");
+				errorAlerta.setContentText("El número introducido no es válido.");
 				errorAlerta.showAndWait();
 			}
 		} catch (Exception f) {
 			Alert errorAlerta = new Alert(AlertType.ERROR);
 			errorAlerta.setTitle("AdivinApp");
 			errorAlerta.setHeaderText("Error");
-			errorAlerta.setContentText("El n�mero introducido no es valido.");
+			errorAlerta.setContentText("El número introducido no es válido.");
 			errorAlerta.showAndWait();
 		}
 
